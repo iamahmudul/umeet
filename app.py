@@ -20,7 +20,7 @@ def get_user_details():
         return jsonify({"error": str(e)})
 
 @app.route('/api/connect', methods=['POST'])
-def connect():
+def create_connect():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
