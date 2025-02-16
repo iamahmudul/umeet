@@ -1,4 +1,5 @@
 import mysql.connector
+import os
 
 HOST = "localhost"
 USER = "root"
@@ -7,8 +8,9 @@ DATABASE = "umeetdb"
 
 def get_db_connection():
     return mysql.connector.connect(
-        host=HOST,       # Change to your database host
-        user=USER,            # Change to your MySQL username
-        password=PASSWORD,    # Change to your MySQL password
-        database=DATABASE      # Change to your database name
+        host=HOST, 
+        user=USER, 
+        password=PASSWORD, 
+        database=DATABASE,
+        ssl_disabled=True  # Disable SSL if not required
     )
