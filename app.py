@@ -2,8 +2,16 @@ from flask import Flask, jsonify, render_template, request
 from config.database import get_db_connection
 import random
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+from flask_cors import CORS
+
+load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
+
+app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
 
 @app.route('/api/login', methods=['POST'])
 def login():
@@ -65,4 +73,4 @@ def profile():
     return render_template('profile.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
