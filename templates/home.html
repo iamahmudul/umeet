@@ -16,13 +16,16 @@
                 <span class="fs-3 fw-bold">UMeet</span>
             </a>
             <div class="d-flex gap-3">
-              <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger" href="javascript:void(0)" style="cursor: pointer;">Connect</a>
-              <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger" href="javascript:void(0)" style="cursor: pointer;">Profile</a>
+                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger" href="/connect" style="cursor: pointer;">Connect</a>
+                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger" href="/profile" style="cursor: pointer;">Profile</a>
             </div>
         </header>
 
         <main>
             Profile page body
+
+            <ol id="thread-list">
+            </ol>
         </main>
         <footer class="pt-5 my-5 text-body-secondary border-top">
             Created for Hackathon Spring'25 &middot; &copy; 2024
@@ -35,6 +38,37 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        const threadList = [
+            {
+                senderId:"",
+                receiverId:"",
+                senderName:"qsd",
+                receiverName:"wxc",
+                sentAt:"2/12/2024 2:12:10PM",
+                content:"we hqve pqrty to,orrow"
+            },
+            {
+                senderId:"",
+                receiverId:"",
+                senderName:"ert",
+                receiverName:"tyu",
+                sentAt:"2/12/2024 2:12:10PM",
+                content:"sone itens left"
+            }
+        ]
 
+        function loqdThreqdList() {
+            let html = "";
+            for (let threqd of threadList) {
+                html += "<li click='userClick("+threqd+")'><div>"+threqd.senderName+" wrote</div><div>"+threqd.content+"</div>";
+            }
+            document.getElementById("thread-list").innerHTML = html;
+        }
+        function userClick(t) {
+            console.log(t)
+        }
+        loqdThreqdList()
+    </script>
 </body>
 </html>
