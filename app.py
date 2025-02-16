@@ -16,7 +16,7 @@ app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
 @app.route('/api/user_profile', methods=['GET'])
 def get_user_details():
     try:
-        return jsonify({"message": f"Successfully added genre!"})
+        return jsonify({"message": f"Successfully fetched user!"})
     except Exception as e:
         return jsonify({"error": str(e)})
 
