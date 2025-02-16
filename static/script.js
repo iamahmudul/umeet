@@ -21,7 +21,7 @@ document
       const data = await response.json();
 
       if (response.ok) {
-        window.open("/connect")
+        window.open("/connect", "_self")
       } else {
         alert(data.error);
       }
